@@ -1,11 +1,19 @@
-import { assets } from "@/assets/assets";
-import Image from "next/image";
-import React from "react";
+import { assets } from '@/assets/assets';
+import Image from 'next/image';
+import React, { useRef } from 'react';
 
-const navbar = () => {
+const Navbar = () => {
+  const sideMenuRef = useRef();
+  const openSideMenu = () => {
+    sideMenuRef.current.style.transform = 'translateX(-16rem)';
+  };
+  const closeSideMenu = () => {
+    sideMenuRef.current.style.transform = 'translateX(16rem)';
+  };
+
   return (
     <>
-      <div className="fixed top-0 right-0 w-11/12  -z-10 translate-y-[-80%]">
+      <div className="fixed top-0 right-0 w-11/12 -z-10 translate-y-[-80%]">
         <Image src={assets.header_bg_color} alt="" className="w-full" />
       </div>
       <nav className="w-full fixed px-5 lg:px-8 xl:px-[8%] py-4 flex items-center justify-between z-50">
@@ -17,33 +25,27 @@ const navbar = () => {
           />
         </a>
         <ul className="hidden md:flex items-center gap-6 lg:gap-8 rounded-full px-12 py-3 bg-white shadow-sm bg-opacity-50">
-          {" "}
           <li>
-            {" "}
             <a href="#top" className="font-Ovo">
               Home
             </a>
           </li>
           <li>
-            {" "}
             <a href="#about" className="font-Ovo">
               About me
             </a>
           </li>
           <li>
-            {" "}
             <a href="#services" className="font-Ovo">
               Services
             </a>
           </li>
           <li>
-            {" "}
             <a href="#work" className="font-Ovo">
               My work
             </a>
           </li>
           <li>
-            {" "}
             <a href="#contact" className="font-Ovo">
               Contact me
             </a>
@@ -59,13 +61,16 @@ const navbar = () => {
           >
             Contact <Image src={assets.arrow_icon} alt="" className="w-3" />
           </a>
-          <button className="block md:hidden ml-3">
+          <button className="block md:hidden ml-3" onClick={openSideMenu}>
             <Image src={assets.menu_black} alt="" className="w-6" />
           </button>
         </div>
-        {/*-- Mobile menu -->*/}
-        <ul className="flex md:hidden flex-col gap-4 py-20 px-10 fixed -right-64 top-0 bottom-0 w-64 z-50 h-screen bg-rose-50 transition duration-500">
-          <div className="absolute right-6 top-6">
+        {/* Mobile menu */}
+        <ul
+          ref={sideMenuRef}
+          className="flex md:hidden flex-col gap-4 py-20 px-10 fixed -right-64 top-0 bottom-0 w-64 z-50 h-screen bg-rose-50 transition duration-500"
+        >
+          <div className="absolute right-6 top-6" onClick={closeSideMenu}>
             <Image
               src={assets.close_black}
               alt=""
@@ -73,32 +78,32 @@ const navbar = () => {
             />
           </div>
           <li>
-            {" "}
-            <a href="#top" className="font-Ovo">
+            <a href="#top" className="font-Ovo" onClick={closeSideMenu}>
+              {' '}
               Home
             </a>
           </li>
           <li>
-            {" "}
-            <a href="#about" className="font-Ovo">
+            <a href="#about" className="font-Ovo" onClick={closeSideMenu}>
+              {' '}
               About me
             </a>
           </li>
           <li>
-            {" "}
-            <a href="#services" className="font-Ovo">
+            <a href="#services" className="font-Ovo" onClick={closeSideMenu}>
+              {' '}
               Services
             </a>
           </li>
           <li>
-            {" "}
-            <a href="#work" className="font-Ovo">
+            <a href="#work" className="font-Ovo" onClick={closeSideMenu}>
+              {' '}
               My work
             </a>
           </li>
           <li>
-            {" "}
-            <a href="#contact" className="font-Ovo">
+            <a href="#contact" className="font-Ovo" onClick={closeSideMenu}>
+              {' '}
               Contact me
             </a>
           </li>
@@ -108,4 +113,4 @@ const navbar = () => {
   );
 };
 
-export default navbar;
+export default Navbar;
