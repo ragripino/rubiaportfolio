@@ -26,15 +26,21 @@ const Navbar = () => {
   return (
     <>
       <div className="fixed top-0 right-0 w-11/12 -z-10 translate-y-[-80%]">
-        <Image src={assets.header_bg_color} alt="" className="w-full" />
+        {assets.header_bg_color && (
+          <Image
+            src={assets.header_bg_color}
+            alt="Header Background"
+            className="w-full"
+          />
+        )}
       </div>
       <nav
         className={`w-full fixed px-5 lg:px-8 xl:px-[8%] py-4 flex items-center justify-between z-50 ${isScroll ? 'bg-white shadow bg-opacity-50 backdrop-blur-lg' : ''}`}
       >
         <a href="#top">
           <Image
-            src={assets.logo_rubia}
-            alt=""
+            src={assets.rubia_logo}
+            alt="Logo"
             className="mr-14 w-28 cursor-pointer"
           />
         </a>
@@ -69,16 +75,17 @@ const Navbar = () => {
         </ul>
         <div className="flex items-center gap-4 lg:gap-8">
           <button>
-            <Image src={assets.moon_icon} alt="" className="w-6" />
+            <Image src={assets.moon_icon} alt="Moon Icon" className="w-6" />
           </button>
           <a
             href=""
             className="ml-4 hidden items-center gap-3 rounded-full border border-r-gray-500 px-10 py-2.5 lg:flex"
           >
-            Contact <Image src={assets.arrow_icon} alt="" className="w-3" />
+            Contact{' '}
+            <Image src={assets.arrow_icon} alt="Arrow Icon" className="w-3" />
           </a>
           <button className="block md:hidden ml-3" onClick={openSideMenu}>
-            <Image src={assets.menu_black} alt="" className="w-6" />
+            <Image src={assets.menu_black} alt="Menu Icon" className="w-6" />
           </button>
         </div>
         {/* Mobile menu */}
@@ -89,7 +96,7 @@ const Navbar = () => {
           <div className="absolute right-6 top-6" onClick={closeSideMenu}>
             <Image
               src={assets.close_black}
-              alt=""
+              alt="Close Icon"
               className="w-5 cursor-pointer"
             />
           </div>
