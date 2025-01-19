@@ -9,11 +9,11 @@ const About = () => {
       <h2 className="text-center text-5xl font-Ovo">About me</h2>
       <div>
         <div className="flex w-full flex-col lg:flex-row items-center gap-20 my-20">
-          <div className="ml-6">
+          <div className="ml-6 w-48 h-48">
             <Image
               src={assets.profilephoto}
               alt=""
-              className="w-full rounded-3xl"
+              className="w-full h-full object-cover rounded-3xl"
             />
           </div>
           <div className="flex-1">
