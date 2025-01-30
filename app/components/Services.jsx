@@ -13,7 +13,7 @@ const Services = () => {
         molestias suscipit! Placeat, error ut. Lorem ipsum dolor sit amet
         consectetur adipisicing elit. Quam, doloremque.
       </p>
-      <div className="grid grid-cols-auto2 gap-6 my-10">
+      <div className="grid grid-cols-auto gap-6 my-10">
         {serviceData.map(({ icon, title, description, link }, index) => (
           <div
             key={index}
