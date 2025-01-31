@@ -1,3 +1,4 @@
+import { assets, workData } from '@/assets/assets';
 import React from 'react';
 
 const Work = () => {
@@ -11,6 +12,21 @@ const Work = () => {
         molestias suscipit! Placeat, error ut. Lorem ipsum dolor sit amet
         consectetur adipisicing elit. Quam, doloremque.
       </p>
+
+      <div>
+        {workData.map(project, index)=>(
+          <div key={index} style={{backgroundImage: `url(${project.bgImage})`}}>
+            <div>
+              <h2>{project.title}</h2>
+              <p>{project.description}</p>
+            </div>
+            <div>
+              <Image src={assets.send_icon} alt='send icon' className='w-5' />
+            </div>
+
+          </div>
+        ))}
+      </div>
     </div>
   );
 };
